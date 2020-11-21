@@ -1,0 +1,11 @@
+#here we are taking input string
+inp_string=input()
+new_list=[]
+n=len(inp_string)
+
+for i in range(n):
+    if inp_string[i] not in new_list:
+        new_list.append(inp_string[i])   #here adding the distinct character in to the new list
+    else:
+        pass
+print(len(new_list))
