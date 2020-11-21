@@ -1,11 +1,30 @@
-#here we are taking input string
-inp_string=input()
-new_list=[]
-n=len(inp_string)
+#code
+def distinct_char(str, n, tot): 
+    h = [0] * tot 
+    for i in range(n): 
+        h[ord(str[i])] += 1
+    a = 0
+    for i in range(tot): 
+        if (h[i] != 0): 
+            a += 1         
+    return a  
+def substring(str): 
+    n = len(str)    
+    a = distinct_char(str, n, 256) 
+    y = n       
+    for i in range(n): 
+        for j in range(n): 
+            subs = str[i:j] 
+            length = len(subs) 
+            char = distinct_char(subs, length, 256) 
+            if (length < y and a == char): 
+                y = length 
+    return y 
+inp_string = input()  
+print(substring(inp_string)) 
 
-for i in range(n):
-    if inp_string[i] not in new_list:
-        new_list.append(inp_string[i])   #here adding the distinct character in to the new list
-    else:
-        pass
-print(len(new_list))
+
+#input
+abcda
+#output
+4
